@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +55,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="datos\BdsPersonas.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BdsPersonas.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="datos\BdsPersonas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BdsPersonas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="datos\BdsPersonas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BdsPersonas.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\estudiante.cs" />
     <Compile Include="Entidades\operacion.cs" />
     <Compile Include="Entidades\persona.cs" />
@@ -138,6 +162,14 @@
     <EmbeddedResource Include="vista\venta.resx">
       <DependentUpon>venta.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="datos\BdsPersonas.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BdsPersonas.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="datos\BdsPersonas.edmx.diagram">
+      <DependentUpon>BdsPersonas.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -150,6 +182,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="datos\BdsPersonas.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BdsPersonas.Context.cs</LastGenOutput>
+      <DependentUpon>BdsPersonas.edmx</DependentUpon>
+    </Content>
+    <Content Include="datos\BdsPersonas.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BdsPersonas.edmx</DependentUpon>
+      <LastGenOutput>BdsPersonas.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
